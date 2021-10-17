@@ -49,4 +49,10 @@ class StringCalculatorShould {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> stringCalculator.add("-1,2,-3"));
         assertEquals("negatives not allowed: [-1, -3]", exception.getMessage());
     }
+
+    @Test
+    public void string_with_number_gt_1k_should_be_ignored() {
+        StringCalculator stringCalculator = new StringCalculator();
+        assertEquals(5, stringCalculator.add("2,1001,3,3000"));
+    }
 }
