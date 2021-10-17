@@ -55,4 +55,11 @@ class StringCalculatorShould {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(5, stringCalculator.add("2,1001,3,3000"));
     }
+
+    @Test
+    public void string_with_any_length_delimiter_should_return_sum() {
+        StringCalculator stringCalculator = new StringCalculator();
+        assertEquals(6, stringCalculator.add("//[***]\n1***2***3"));
+        assertEquals(6, stringCalculator.add("//[,,,]\n1,,,2,,,3"));
+    }
 }

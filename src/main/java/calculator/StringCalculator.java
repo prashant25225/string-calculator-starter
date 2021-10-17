@@ -13,9 +13,18 @@ class StringCalculator {
 
         String delimiter = "[,\n]";
 
-        if (input.startsWith("//") && input.charAt(3) == '\n') {
-            delimiter = String.valueOf(input.charAt(2));
-            input = input.substring(4);
+        if (input.startsWith("//")) {
+            if (input.charAt(3) == '\n') {
+                delimiter = String.valueOf(input.charAt(2));
+                input = input.substring(4);
+            }
+            if (input.charAt(2) == '[') {
+                String delimiterString = input.substring(0, input.indexOf("\n"));
+
+                delimiter = delimiterString.substring(3, delimiterString.indexOf(']'));
+                delimiter = "\\Q" + delimiter + "\\E";
+                input = input.substring(input.indexOf("\n") + 1);
+            }
         }
 
         String[] numbers = input.split(delimiter);
