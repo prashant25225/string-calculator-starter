@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for StringCalculator
+ */
 class StringCalculatorShould {
 
     @Test
@@ -61,5 +64,17 @@ class StringCalculatorShould {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(6, stringCalculator.add("//[***]\n1***2***3"));
         assertEquals(6, stringCalculator.add("//[,,,]\n1,,,2,,,3"));
+    }
+
+    @Test
+    public void string_with_multiple_delimiters_should_return_sum() {
+        StringCalculator stringCalculator = new StringCalculator();
+        assertEquals(6, stringCalculator.add("//[*][%]\n1*2%3"));
+    }
+
+    @Test
+    public void string_with_multiple_delimiters_with_length_gt_1_should_return_sum() {
+        StringCalculator stringCalculator = new StringCalculator();
+        assertEquals(6, stringCalculator.add("//[***][%%]\n1***2%%3"));
     }
 }
