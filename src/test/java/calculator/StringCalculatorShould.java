@@ -18,4 +18,10 @@ class StringCalculatorShould {
         assertEquals(1, stringCalculator.add("1"));
         assertEquals(123, stringCalculator.add("123"));
     }
+
+    @Test
+    public void string_with_two_numbers_should_return_sum() {
+        StringCalculator stringCalculator = new StringCalculator();
+        assertEquals(3, stringCalculator.add("1,2"));
+    }
 }

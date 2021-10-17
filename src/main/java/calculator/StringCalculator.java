@@ -8,12 +8,13 @@ class StringCalculator {
             return 0;
         }
 
-        // If input contains only single number
-        if (!input.contains(",")) {
-            return Integer.parseInt(input);
+        String[] numbers = input.split(",");
+        int sum = 0;
+        for (String n : numbers) {
+            sum += Integer.parseInt(n);
         }
 
-        return 0;
+        return sum;
     }
 
 }
