@@ -42,4 +42,11 @@ class StringCalculatorShould {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(3, stringCalculator.add("//;\n1;2"));
     }
+
+    @Test
+    public void string_with_negative_numbers_should_raise_exception() {
+        StringCalculator stringCalculator = new StringCalculator();
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> stringCalculator.add("-1,2,-3"));
+        assertEquals("negatives not allowed: [-1, -3]", exception.getMessage());
+    }
 }
